@@ -1,0 +1,7 @@
+# Research downloads and local tooling stay out of the published site
+_research/
+.claude/
+client-overview/
+*.log
+Thumbs.db
+.DS_Store
