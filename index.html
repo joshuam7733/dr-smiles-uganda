@@ -19,9 +19,9 @@
         href="assets/img/clinic-dentist-patient-1100.webp"
         imagesrcset="assets/img/clinic-dentist-patient-640.webp 640w, assets/img/clinic-dentist-patient-1100.webp 1100w"
         imagesizes="(min-width: 960px) 44vw, 92vw">
-  <link rel="stylesheet" href="assets/css/styles.css?v=9">
+  <link rel="stylesheet" href="assets/css/styles.css?v=10">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="assets/js/main.js?v=9" defer></script>
+  <script src="assets/js/main.js?v=10" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -177,11 +177,6 @@
           </blockquote>
 
           <div class="about-facts">
-            <div class="fact tbc">
-              <span class="tbc-tag">To confirm</span>
-              <strong>Qualifications &amp; registration</strong>
-              <span>Dental degree, practising licence and years in practice</span>
-            </div>
             <a class="fact fact-link" href="https://confessions256.wordpress.com/2021/04/29/dr-smiles-offers-dental-care-to-talent-show-dancers-shamed-by-alex-mukulu-over-body-odor/" target="_blank" rel="noopener">
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
               <strong>In the news</strong>
@@ -205,7 +200,10 @@
           <p class="services-lede">Everyday dental care, explained clearly and priced to be within reach, from your first check-up to fillings, braces and whitening.</p>
           <div class="services-cta">
             <a class="btn btn-green" href="#contact">Book a visit</a>
-            <a class="btn btn-outline" href="#treatments">See all treatments</a>
+            <button class="btn btn-outline treatments-toggle" type="button" aria-expanded="false" aria-controls="treatments" data-treatments-toggle>
+              <span data-label>See all treatments</span>
+              <svg class="icon toggle-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
           </div>
         </div>
 
@@ -261,48 +259,49 @@
         </ul>
       </div>
 
-      <div class="wrap treatments" id="treatments">
-        <div class="treatments-head reveal">
-          <h3>Full treatment menu</h3>
-          <p>Available at Pasha Dental Surgery, Kirabo Complex, Bukoto. Not sure what you need? Your check-up is the place to start.</p>
+      <div class="wrap treatments" id="treatments" data-treatments tabindex="-1" aria-labelledby="treatments-title">
+        <div class="treatments-head">
+          <h3 id="treatments-title">Full treatment menu</h3>
+          <p>Available at the clinic in Kirabo Complex, Bukoto. Not sure what you need? Your check-up is the place to start.</p>
+          <button class="btn btn-outline btn-sm" type="button" data-treatments-close>Hide treatments</button>
         </div>
         <div class="treatment-grid">
-          <div class="treatment-group reveal">
+          <div class="treatment-group">
             <span class="treatment-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
             <h4>Check-ups &amp; prevention</h4>
             <ul><li>Comprehensive oral examination</li><li>Scaling &amp; polishing</li><li>Fissure sealants</li><li>Fluoride treatment</li><li>Plaque control &amp; oral health education</li><li>Nutrition counselling</li></ul>
           </div>
-          <div class="treatment-group reveal">
+          <div class="treatment-group">
             <span class="treatment-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4c-2 0-4 2-3 6 .7 3 1.4 6 2 9 .6 1.5 2 1.5 2.4 0l.7-4c.3-1.2 1.8-1.2 2.1 0l.7 4c.4 1.5 1.8 1.5 2.4 0 .6-3 1.3-6 2-9 1-4-1-6-3-6-1.4 0-2.2.7-3.6.7S8.4 4 7 4Z"/><path d="M10 8h4"/></svg></span>
             <h4>Fillings &amp; root canals</h4>
             <ul><li>Fillings</li><li>Single-visit root canal treatment</li><li>Regular root canal treatment</li><li>Re-treatment of failed root canals</li><li>Pulpotomy &amp; pulp capping</li><li>Inlays &amp; onlays</li></ul>
           </div>
-          <div class="treatment-group reveal">
+          <div class="treatment-group">
             <span class="treatment-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2c.6 4.8 3.6 7.8 9 9-5.4 1.2-8.4 4.2-9 9-.6-4.8-3.6-7.8-9-9 5.4-1.2 8.4-4.2 9-9Z"/></svg></span>
             <h4>Cosmetic dentistry</h4>
             <ul><li>Teeth whitening</li><li>Veneers</li><li>Single-visit crowns</li></ul>
           </div>
-          <div class="treatment-group reveal">
+          <div class="treatment-group">
             <span class="treatment-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="5"/><path d="M8 7v10M12 7v10M16 7v10"/></svg></span>
             <h4>Replacing missing teeth</h4>
             <ul><li>Dental implants</li><li>Crowns &amp; bridges</li><li>Single-visit bridges</li><li>Dentures</li></ul>
           </div>
-          <div class="treatment-group reveal">
+          <div class="treatment-group">
             <span class="treatment-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h18"/><rect x="5" y="9" width="4" height="6" rx="1"/><rect x="15" y="9" width="4" height="6" rx="1"/><path d="M10 12h4"/></svg></span>
             <h4>Straighter teeth</h4>
             <ul><li>Braces (teeth alignment)</li><li>Habit breakers</li></ul>
           </div>
-          <div class="treatment-group reveal">
+          <div class="treatment-group">
             <span class="treatment-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 4 20 10 9 21H3v-6z"/><path d="m12 6 6 6"/></svg></span>
             <h4>Oral surgery</h4>
             <ul><li>Tooth extractions</li><li>Wisdom tooth surgery (disimpaction)</li><li>Apicectomy (root-tip surgery)</li><li>Draining dental infections</li><li>Biopsies</li><li>Operculectomy</li><li>Jaw wiring</li></ul>
           </div>
-          <div class="treatment-group reveal">
+          <div class="treatment-group">
             <span class="treatment-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9c0 8 16 8 16 0"/><path d="M4 9c2 3 14 3 16 0"/></svg></span>
             <h4>Protective guards</h4>
             <ul><li>Mouth guards</li><li>Night guards for grinding</li></ul>
           </div>
-          <div class="treatment-group reveal">
+          <div class="treatment-group">
             <span class="treatment-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-7 7-7s7 3 7 7"/></svg></span>
             <h4>Children&rsquo;s dentistry</h4>
             <ul><li>Check-ups for children</li><li>Fissure sealants &amp; fluoride</li></ul>
@@ -832,7 +831,7 @@
 
         <div class="contact-cards">
           <div class="map-card reveal">
-            <a class="map-art" href="https://www.google.com/maps/place/Pasha+Dental+Surgery/@0.3534682,32.5978263,17z" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <a class="map-art" href="https://www.google.com/maps/search/?api=1&amp;query=0.3534682%2C32.5978263" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
               <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">
                 <path class="road" d="M-10 130 C 80 110, 140 150, 330 90"/>
                 <path class="road" d="M90 -10 C 110 60, 70 120, 120 200"/>
@@ -845,14 +844,14 @@
               <span class="map-label">Kirabo Complex</span>
             </a>
             <div class="map-body">
-              <strong>Pasha Dental Surgery, Bukoto</strong>
+              <strong>Find us in Bukoto</strong>
               <span>Kirabo Complex, 2nd floor, offices 222/223, Bukoto–Kisaasi Road, Kampala</span>
               <div class="map-actions">
                 <a class="btn btn-green btn-sm" href="https://www.google.com/maps/dir/?api=1&amp;destination=0.3534682,32.5978263" target="_blank" rel="noopener">
                   <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 21 3l-8 18-2-8z"/></svg>
                   Get directions
                 </a>
-                <a class="btn btn-ghost-light btn-sm" href="https://www.google.com/maps/place/Pasha+Dental+Surgery/@0.3534682,32.5978263,17z" target="_blank" rel="noopener">
+                <a class="btn btn-ghost-light btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=0.3534682%2C32.5978263" target="_blank" rel="noopener">
                   <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
                   View on Google Maps
                 </a>
@@ -867,7 +866,6 @@
               <div><dt>Saturday</dt><dd>8:00 am – 4:00 pm</dd></div>
               <div><dt>Sunday</dt><dd>10:00 am – 3:00 pm</dd></div>
             </dl>
-            <p class="hours-note">Clinic reception: <a href="tel:+256752224880">+256 752 224 880</a></p>
           </div>
         </div>
       </div>

@@ -2,6 +2,27 @@
 
 All notable changes to the Dr. Smiles Uganda website concept.
 
+## 2026-11-23: Review round 3
+
+### Removed from the site (on request)
+- The "Qualifications & registration" placeholder in About. The facts row now has two cards: "In the news"
+  and "Watch the interview".
+- Every mention of Pasha Dental Surgery. The map card now reads "Find us in Bukoto" with the Kirabo Complex
+  address, and both Google Maps buttons open the clinic's map pin by coordinates rather than the Pasha
+  listing. The treatment menu now says "Available at the clinic in Kirabo Complex, Bukoto". The Pasha
+  reception number is removed from the hours card.
+
+### Services
+- The full treatment menu is hidden until "See all treatments" is pressed. The button then expands the menu
+  (the groups ease in one after another), scrolls to it and changes to "Hide treatments". A second
+  "Hide treatments" button inside the menu closes it and returns to the services. Without JavaScript the
+  menu stays visible.
+
+### Client overview PDF
+- Removed three questions from "To finish your website": qualifications, the link to Pasha Dental Surgery,
+  and which treatments he provides. The web address (drsmilesug.com), WhatsApp and phone numbers, reviews,
+  photo permissions, logo file and the tip read-through remain.
+
 ## 2026-11-23: Review round 2
 
 ### Hero (desktop only)

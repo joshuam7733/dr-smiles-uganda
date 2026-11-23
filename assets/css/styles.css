@@ -528,7 +528,7 @@ blockquote { margin: 0; }
 
 .about-facts {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: .9rem;
 }
 .fact {
@@ -640,8 +640,25 @@ blockquote { margin: 0; }
   .service:hover .service-icon { background: var(--green); transform: rotate(-8deg) scale(1.06); }
 }
 
-/* Full treatment menu, grouped so it is easy to scan */
-.treatments { margin-top: clamp(3.5rem, 6vw, 5.5rem); }
+/* Full treatment menu: hidden until "See all treatments" opens it */
+.treatments { margin-top: clamp(3.5rem, 6vw, 5.5rem); scroll-margin-top: calc(var(--header-h) + 1.5rem); }
+.treatments:focus { outline: none; }
+.js .treatments:not(.is-open) { display: none; }
+.js .treatments.is-open { animation: treatments-in .55s var(--ease-out); }
+.js .treatments.is-open .treatment-group { animation: treatments-in .5s var(--ease-out) backwards; }
+.js .treatments.is-open .treatment-group:nth-child(2) { animation-delay: .05s; }
+.js .treatments.is-open .treatment-group:nth-child(3) { animation-delay: .1s; }
+.js .treatments.is-open .treatment-group:nth-child(4) { animation-delay: .15s; }
+.js .treatments.is-open .treatment-group:nth-child(5) { animation-delay: .2s; }
+.js .treatments.is-open .treatment-group:nth-child(6) { animation-delay: .25s; }
+.js .treatments.is-open .treatment-group:nth-child(7) { animation-delay: .3s; }
+.js .treatments.is-open .treatment-group:nth-child(8) { animation-delay: .35s; }
+@keyframes treatments-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.treatments-toggle .toggle-chevron { transition: transform .35s var(--ease-out); }
+.treatments-toggle[aria-expanded="true"] .toggle-chevron { transform: rotate(180deg); }
 .treatments-head {
   display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
   gap: .75rem 2rem;

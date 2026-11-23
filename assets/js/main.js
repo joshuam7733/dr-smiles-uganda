@@ -41,6 +41,7 @@
     initServiceIcons();
     initMagnetText();
     initTips();
+    initTreatments();
 
     var year = document.querySelector("[data-year]");
     if (year) year.textContent = String(new Date().getFullYear());
@@ -419,6 +420,35 @@
     document.querySelectorAll(".phones a").forEach(function (a) {
       a.setAttribute("aria-label", "Call " + a.textContent.trim());
       magnet(a, splitIntoChars(a), { radius: 1.6, lift: 0.18 });
+    });
+  }
+
+  /* ---------- Services: the full treatment menu opens from "See all treatments" ---------- */
+  function initTreatments() {
+    var btn = document.querySelector("[data-treatments-toggle]");
+    var menu = document.querySelector("[data-treatments]");
+    if (!btn || !menu) return;
+    var label = btn.querySelector("[data-label]");
+    var closer = menu.querySelector("[data-treatments-close]");
+    var behavior = function () { return reduceMotion.matches ? "auto" : "smooth"; };
+
+    function set(open) {
+      btn.setAttribute("aria-expanded", String(open));
+      menu.classList.toggle("is-open", open);
+      label.textContent = open ? "Hide treatments" : "See all treatments";
+    }
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") !== "true";
+      set(open);
+      if (open) {
+        menu.focus({ preventScroll: true });
+        menu.scrollIntoView({ behavior: behavior(), block: "start" });
+      }
+    });
+    if (closer) closer.addEventListener("click", function () {
+      set(false);
+      btn.focus({ preventScroll: true });
+      document.getElementById("services").scrollIntoView({ behavior: behavior(), block: "start" });
     });
   }
 
