@@ -1,6 +1,6 @@
 # Dr. Smiles Uganda: website concept
 
-A one-page website concept for Dr. Smiles Uganda, the dental practice of Dr. John Vianney Serumaga.
+A one-page website concept for Dr. Smiles Uganda, the practice of Dr. John Vianney Sserumaga, a cosmetic dentist in Bukoto, Kampala.
 
 **Live preview:** https://joshuam7733.github.io/dr-smiles-uganda/
 
@@ -14,8 +14,11 @@ Plain HTML, CSS and JavaScript. No build step and no frameworks.
 
 - `index.html`: the page
 - `assets/css/styles.css`: styles and responsive layout
-- `assets/js/main.js`: scroll reveals, mobile menu, cursor and tap interactions
+- `assets/js/main.js`: scroll reveals, mobile menu, cursor and tap interactions, the Smile school carousel
 - `assets/img/`: optimised brand images (WebP) and the logo
+- Smile school illustrations are inline SVG symbols at the top of the tips section in `index.html`
+
+See [CHANGELOG.md](CHANGELOG.md) for what changed in each round.
 
 Brand assets and photographs come from the clinic's public Instagram ([@drsmiles_ug](https://www.instagram.com/drsmiles_ug/))
 and remain the property of Dr. Smiles Uganda.
