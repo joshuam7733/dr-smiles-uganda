@@ -42,6 +42,8 @@
     initMagnetText();
     initTips();
     initTreatments();
+    initBeforeAfter();
+    initReviewForm();
 
     var year = document.querySelector("[data-year]");
     if (year) year.textContent = String(new Date().getFullYear());
@@ -420,6 +422,86 @@
     document.querySelectorAll(".phones a").forEach(function (a) {
       a.setAttribute("aria-label", "Call " + a.textContent.trim());
       magnet(a, splitIntoChars(a), { radius: 1.6, lift: 0.18 });
+    });
+  }
+
+  /* ---------- Gallery: drag-to-compare before & after ---------- */
+  function initBeforeAfter() {
+    var sliders = document.querySelectorAll(".ba");
+    sliders.forEach(function (ba) {
+      var range = ba.querySelector(".ba-range");
+      if (!range) return;
+      var set = function (v) { ba.style.setProperty("--pos", v + "%"); };
+      range.addEventListener("input", function () { set(range.value); });
+      range.addEventListener("pointerdown", function () { ba.classList.add("is-dragging"); });
+      ["pointerup", "pointercancel", "blur"].forEach(function (ev) {
+        range.addEventListener(ev, function () { ba.classList.remove("is-dragging"); });
+      });
+    });
+
+    // A one-time nudge shows visitors the handle moves
+    if (reduceMotion.matches || !("IntersectionObserver" in window) || !Element.prototype.animate) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        var ba = entry.target, range = ba.querySelector(".ba-range");
+        var start = performance.now(), dur = 1400;
+        (function step(now) {
+          var t = Math.min(1, (now - start) / dur);
+          if (range.matches(":focus") || ba.classList.contains("is-dragging")) return;
+          var v = 50 + Math.sin(t * Math.PI * 2) * 18 * (1 - t);
+          ba.style.setProperty("--pos", v.toFixed(2) + "%");
+          range.value = String(Math.round(v));
+          if (t < 1) requestAnimationFrame(step);
+        })(start);
+      });
+    }, { threshold: 0.6 });
+    sliders.forEach(function (ba) { io.observe(ba); });
+  }
+
+  /* ---------- Patient stories: leave a review (preview: not posted anywhere yet) ---------- */
+  function initReviewForm() {
+    var form = document.querySelector("[data-review-form]");
+    if (!form) return;
+    var status = form.querySelector(".rv-status");
+    var nameField = form.elements.name, reviewField = form.elements.review;
+
+    function mark(el, bad) {
+      var wrap = el.closest(".rv-field") || el.closest(".rv-rating");
+      if (wrap) wrap.classList.toggle("is-invalid", bad);
+      if (el.setAttribute) el.setAttribute("aria-invalid", bad ? "true" : "false");
+    }
+    // clear an error as soon as it is fixed
+    form.addEventListener("input", function (e) {
+      if (e.target === nameField && nameField.value.trim()) mark(nameField, false);
+      if (e.target === reviewField && reviewField.value.trim()) mark(reviewField, false);
+    });
+    form.addEventListener("change", function (e) {
+      if (e.target.name === "rating") form.querySelector(".rv-rating").classList.remove("is-invalid");
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var rating = form.querySelector('input[name="rating"]:checked');
+      var name = nameField.value.trim(), review = reviewField.value.trim();
+      var missing = [];
+      form.querySelector(".rv-rating").classList.toggle("is-invalid", !rating);
+      if (!rating) missing.push("a star rating");
+      mark(nameField, !name); if (!name) missing.push("your name");
+      mark(reviewField, !review); if (!review) missing.push("a few words about your visit");
+
+      status.hidden = false;
+      if (missing.length) {
+        status.classList.add("is-error");
+        status.textContent = "Add " + missing.join(", ").replace(/, ([^,]*)$/, " and $1") + " to post your review.";
+        var first = !rating ? form.querySelector('input[name="rating"]') : (!name ? nameField : reviewField);
+        first.focus();
+        return;
+      }
+      status.classList.remove("is-error");
+      status.textContent = "Thank you, " + name.split(" ")[0] + "! This is a preview of the review form, so your review hasn't been posted yet. Posting to the site and to Google is switched on at launch.";
+      form.reset();
     });
   }
 

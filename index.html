@@ -19,9 +19,9 @@
         href="assets/img/clinic-dentist-patient-1100.webp"
         imagesrcset="assets/img/clinic-dentist-patient-640.webp 640w, assets/img/clinic-dentist-patient-1100.webp 1100w"
         imagesizes="(min-width: 960px) 44vw, 92vw">
-  <link rel="stylesheet" href="assets/css/styles.css?v=11">
+  <link rel="stylesheet" href="assets/css/styles.css?v=12">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="assets/js/main.js?v=10" defer></script>
+  <script src="assets/js/main.js?v=12" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -356,15 +356,53 @@
             <figcaption>After a routine scale and polish</figcaption>
           </figure>
           <figure class="g-item g-tall reveal">
-            <img src="assets/img/clinic-patient-visit-360.webp" width="360" height="640" loading="lazy"
-                 alt="A smiling visitor and Dr. Smiles in blue scrubs taking a selfie in the treatment room">
-            <figcaption>Good times in the treatment room</figcaption>
+            <img src="assets/img/clinic-chair-relaxed-455.webp" width="455" height="637" loading="lazy"
+                 alt="Dr. Smiles in green scrubs sitting beside a relaxed patient in the green dental chair">
+            <figcaption>Relaxed and ready in the treatment chair</figcaption>
           </figure>
-          <div class="g-item g-placeholder tbc reveal">
-            <span class="tbc-tag">To confirm</span>
-            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="38" height="30" rx="4"/><path d="M24 9v30"/><path d="M11 30l5-6 4 4M29 30l5-6 4 4"/></svg>
-            <strong>Before &amp; after results</strong>
-            <span>Treatment photos will appear here once the clinic supplies images with patient consent.</span>
+          <figure class="g-item reveal">
+            <img src="assets/img/outreach-chair-smile-455.webp" width="455" height="607" loading="lazy"
+                 alt="Dr. Smiles smiling beside a patient in a portable dental chair at a community outreach">
+            <figcaption>Check-ups out in the community</figcaption>
+          </figure>
+        </div>
+
+        <div class="ba-block">
+          <div class="ba-head reveal">
+            <h3>Before &amp; after</h3>
+            <p>Drag the handle to compare. These are example cases from published dental reports, not Dr. Smiles patients. His own results will be added here with patient consent.</p>
+          </div>
+          <div class="ba-grid">
+            <figure class="ba-card reveal">
+              <div class="ba" style="--pos:50%">
+                <img class="ba-img" src="assets/img/example-stains-after.webp" width="900" height="450" loading="lazy" alt="After: even, clean enamel on the front teeth">
+                <div class="ba-before"><img class="ba-img" src="assets/img/example-stains-before.webp" width="900" height="450" loading="lazy" alt="Before: brown and white fluorosis stains on the front teeth"></div>
+                <span class="ba-tag ba-tag-before" aria-hidden="true">Before</span>
+                <span class="ba-tag ba-tag-after" aria-hidden="true">After</span>
+                <span class="ba-handle" aria-hidden="true"></span>
+                <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after stain removal">
+              </div>
+              <figcaption>
+                <strong>Stain removal</strong>
+                <span>Fluorosis stains treated with whitening, microabrasion and resin infiltration.</span>
+                <small>Example case: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11683276/" target="_blank" rel="noopener">Nordin et al., Cureus 2024</a>, CC BY 4.0</small>
+              </figcaption>
+            </figure>
+            <figure class="ba-card reveal">
+              <div class="ba" style="--pos:50%">
+                <img class="ba-img" src="assets/img/example-gap-after.webp" width="900" height="450" loading="lazy" alt="After: the gap is closed and the front teeth are even">
+                <div class="ba-before"><img class="ba-img" src="assets/img/example-gap-before.webp" width="900" height="450" loading="lazy" alt="Before: a gap between the two front teeth, with braces"></div>
+                <span class="ba-tag ba-tag-before" aria-hidden="true">Before</span>
+                <span class="ba-tag ba-tag-after" aria-hidden="true">After</span>
+                <span class="ba-handle" aria-hidden="true"></span>
+                <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after gap closure">
+              </div>
+              <figcaption>
+                <strong>Gap closure</strong>
+                <span>A 4 mm gap between the front teeth closed with porcelain veneers after braces.</span>
+                <small>Example case: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12497425/" target="_blank" rel="noopener">Barhoumi et al., Cureus 2025</a>, CC BY 4.0</small>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </div>
@@ -376,8 +414,8 @@
         <div class="testimonials-intro reveal">
           <h2 class="section-title" id="reviews-title">Patient stories</h2>
           <p>
-            Patients review Dr. Smiles on Facebook and share their experiences in the Testimonials highlight on Instagram.
-            Written reviews will be quoted here once the clinic has each patient's permission.
+            Been to see Dr. Smiles? Tell others how it went. You can also read reviews on Facebook and patient
+            stories in the Testimonials highlight on Instagram.
           </p>
           <div class="review-links">
             <a class="btn btn-navy" href="https://www.facebook.com/drjsvianney/reviews" target="_blank" rel="noopener">
@@ -396,11 +434,46 @@
             <span class="rating-num">98%</span>
             <span class="rating-text"><strong>of reviewers recommend Dr. Smiles</strong><span>Based on 28 reviews on Facebook, November 2026</span></span>
           </a>
-          <figure class="quote tbc reveal">
-            <span class="tbc-tag">Placeholder</span>
-            <blockquote><p>A patient review will go here, quoted word for word with the patient's permission.</p></blockquote>
-            <figcaption>Patient name, treatment received</figcaption>
+          <figure class="quote reveal">
+            <div class="quote-top">
+              <span class="quote-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span>
+              <span class="sample-tag">Sample review</span>
+            </div>
+            <blockquote><p>I'd put off the dentist for years. Dr. Smiles explained every step before starting, the cleaning was quick and painless, and my teeth have never felt this fresh.</p></blockquote>
+            <figcaption><strong>Grace N.</strong><span>Scaling &amp; polishing</span></figcaption>
           </figure>
+
+          <form class="review-form reveal" data-review-form novalidate>
+            <h3>Leave a review</h3>
+            <fieldset class="rv-rating">
+              <legend>Your rating</legend>
+              <div class="rv-stars"><input type="radio" id="rv-star-5" name="rating" value="5" required><label for="rv-star-5" title="5 stars"><span class="sr-only">5 stars</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></label><input type="radio" id="rv-star-4" name="rating" value="4"><label for="rv-star-4" title="4 stars"><span class="sr-only">4 stars</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></label><input type="radio" id="rv-star-3" name="rating" value="3"><label for="rv-star-3" title="3 stars"><span class="sr-only">3 stars</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></label><input type="radio" id="rv-star-2" name="rating" value="2"><label for="rv-star-2" title="2 stars"><span class="sr-only">2 stars</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></label><input type="radio" id="rv-star-1" name="rating" value="1"><label for="rv-star-1" title="1 star"><span class="sr-only">1 star</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></label></div>
+            </fieldset>
+            <div class="rv-row">
+              <label class="rv-field">
+                <span>Your name</span>
+                <input type="text" name="name" autocomplete="name" placeholder="e.g. Grace N." required>
+              </label>
+              <label class="rv-field">
+                <span>Treatment</span>
+                <select name="treatment">
+                  <option value="">Choose one (optional)</option>
+                  <option>Check-up</option><option>Scaling &amp; polishing</option><option>Tooth extraction</option>
+                  <option>Fillings or root canal</option><option>Whitening or veneers</option><option>Braces</option>
+                  <option>Mobile dentistry or outreach</option><option>Other</option>
+                </select>
+              </label>
+            </div>
+            <label class="rv-field">
+              <span>Your review</span>
+              <textarea name="review" rows="4" placeholder="What was your visit like?" required></textarea>
+            </label>
+            <div class="rv-actions">
+              <button class="btn btn-green" type="submit">Post review</button>
+              <p class="rv-note">Reviews will also appear on Google once the site launches.</p>
+            </div>
+            <p class="rv-status" role="status" aria-live="polite" hidden></p>
+          </form>
         </div>
       </div>
     </section>

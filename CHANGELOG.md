@@ -2,6 +2,30 @@
 
 All notable changes to the Dr. Smiles Uganda website concept.
 
+## 2026-11-23: Review round 4
+
+### Smile gallery
+- Replaced "Good times in the treatment room" with a clinic photo from Dr. Sserumaga's Facebook page: Dr. Smiles
+  in green scrubs beside a relaxed patient in the green treatment chair ("Relaxed and ready in the treatment
+  chair"). Removed the old image file.
+- Replaced the "Before & after" placeholder tile with a community outreach photo ("Check-ups out in the
+  community") from the charity project post.
+- New "Before & after" block with two drag-to-compare sliders (range input, keyboard accessible, with a
+  one-time nudge animation that respects reduced motion):
+  - Stain removal: fluorosis stains treated with whitening, microabrasion and resin infiltration.
+    Nordin et al., Cureus 2024 (PMC11683276), CC BY 4.0.
+  - Gap closure: a 4 mm gap closed with porcelain veneers after braces. Barhoumi et al., Cureus 2025
+    (PMC12497425), CC BY 4.0.
+  Both are labelled on the page as example cases from published reports, not Dr. Smiles patients, with
+  credits linking to the source articles.
+
+### Patient stories
+- Replaced the placeholder quote with a sample five-star review (Grace N., scaling & polishing), visibly
+  tagged "Sample review" so it is not mistaken for a real patient's words. Replace before launch.
+- Added a "Leave a review" form: star rating, name, optional treatment and review text, with inline
+  validation that clears as fields are fixed. It is a front-end preview: on submit it thanks the visitor
+  and explains that posting (to the site and Google) is switched on at launch. Nothing is sent anywhere.
+
 ## 2026-11-23: Review round 3
 
 ### Removed from the site (on request)

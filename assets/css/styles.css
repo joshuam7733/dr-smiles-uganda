@@ -886,6 +886,166 @@ blockquote { margin: 0; }
 }
 
 /* ==========================================================================
+   Before & after sliders (gallery)
+   ========================================================================== */
+.ba-block { margin-top: clamp(3rem, 6vw, 5rem); }
+.ba-head {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: .5rem 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 2px solid var(--navy);
+}
+.ba-head h3 { font-size: var(--step-3); letter-spacing: -.025em; }
+.ba-head p { max-width: 36rem; margin: 0; font-size: var(--step--1); color: var(--navy-soft); }
+
+.ba-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.75rem); }
+.ba {
+  --pos: 50%;
+  position: relative;
+  aspect-ratio: 2 / 1;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background: var(--navy-deep);
+  -webkit-user-select: none; user-select: none;
+}
+.ba-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ba-before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba-handle {
+  position: absolute; top: 0; bottom: 0; left: var(--pos);
+  width: 3px; margin-left: -1.5px;
+  background: var(--white);
+  box-shadow: 0 0 0 1px rgba(17, 31, 61, .15);
+  pointer-events: none;
+}
+.ba-handle::after {
+  content: "";
+  position: absolute; top: 50%; left: 50%;
+  width: 46px; height: 46px;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111f3d' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 7-5 5 5 5M15 7l5 5-5 5'/%3E%3C/svg%3E") center / 62% no-repeat;
+  box-shadow: 0 8px 18px -8px rgba(0, 0, 0, .55);
+  transition: transform .25s var(--ease-spring);
+}
+.ba:hover .ba-handle::after, .ba.is-dragging .ba-handle::after { transform: translate(-50%, -50%) scale(1.1); }
+.ba:focus-within .ba-handle::after { outline: 3px solid var(--navy); outline-offset: 3px; }
+.ba-tag {
+  position: absolute; top: .75rem;
+  padding: .25rem .7rem;
+  border-radius: 999px;
+  font-size: .75rem; font-weight: 600;
+  pointer-events: none;
+}
+.ba-tag-before { left: .75rem; background: rgba(17, 31, 61, .78); color: var(--white); }
+.ba-tag-after { right: .75rem; background: var(--green); color: var(--navy-deep); }
+.ba-range {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  -webkit-appearance: none; appearance: none;
+}
+.ba-card figcaption { display: grid; gap: .2rem; margin-top: .85rem; }
+.ba-card figcaption strong { font: 800 var(--step-1)/1.2 var(--font-display); letter-spacing: -.015em; }
+.ba-card figcaption span { color: var(--navy-soft); font-size: var(--step--1); }
+.ba-card figcaption small { font-size: .75rem; color: var(--navy-soft); }
+.ba-card figcaption small a { color: inherit; text-underline-offset: 2px; }
+
+@media (max-width: 760px) {
+  .ba-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ==========================================================================
+   Patient stories: sample review + leave a review
+   ========================================================================== */
+.quote-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.quote-stars { display: inline-flex; gap: .15rem; }
+.quote-stars svg { width: 18px; height: 18px; fill: #f5b400; }
+.sample-tag {
+  padding: .2rem .65rem;
+  border-radius: 999px;
+  background: var(--enamel);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: .72rem; font-weight: 600;
+  color: var(--navy-soft);
+}
+.quote figcaption { display: grid; gap: .1rem; }
+.quote figcaption strong { font-size: .95rem; }
+.quote figcaption span { font-weight: 400; color: var(--navy-soft); }
+
+.review-form {
+  display: grid; gap: 1.1rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  box-shadow: 0 0 0 1px var(--line);
+}
+.review-form h3 { font-size: var(--step-2); letter-spacing: -.02em; }
+.rv-rating { margin: 0; padding: 0; border: 0; min-width: 0; }
+.rv-rating legend { margin-bottom: .4rem; padding: 0; font-size: .9rem; font-weight: 600; }
+/* stars are listed 5 to 1 and shown reversed, so "checked ~ label" fills every star up to the choice */
+.rv-stars { display: inline-flex; flex-direction: row-reverse; gap: .2rem; }
+.rv-stars input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.rv-stars label {
+  display: grid; place-items: center;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.rv-stars label svg {
+  width: 30px; height: 30px;
+  fill: #d9e0ea;
+  transition: fill .15s, transform .3s var(--ease-spring);
+}
+.rv-stars input:checked ~ label svg { fill: #f5b400; }
+@media (hover: hover) {
+  .rv-stars label:hover svg,
+  .rv-stars label:hover ~ label svg { fill: #f5b400; }
+  .rv-stars label:hover svg { transform: scale(1.15) rotate(-8deg); }
+}
+.rv-stars input:focus-visible + label { outline: 3px solid var(--green); outline-offset: 2px; }
+.rv-rating.is-invalid .rv-stars label svg { fill: #f3c2c2; }
+
+.rv-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.rv-field { display: grid; gap: .35rem; font-size: .9rem; font-weight: 600; }
+.rv-field input, .rv-field select, .rv-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: .75rem .9rem;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--enamel);
+  color: var(--navy);
+  font: 400 1rem/1.4 var(--font-body);
+  transition: border-color .2s, background-color .2s, box-shadow .2s;
+}
+.rv-field textarea { min-height: 112px; resize: vertical; }
+.rv-field input:focus, .rv-field select:focus, .rv-field textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(69, 204, 34, .25);
+}
+.rv-field.is-invalid input, .rv-field.is-invalid textarea { border-color: #d64545; background: #fff7f7; }
+.rv-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; }
+.rv-note { margin: 0; font-size: .8rem; color: var(--navy-soft); }
+.rv-status {
+  margin: 0;
+  padding: .85rem 1rem;
+  border-radius: 12px;
+  background: var(--mint);
+  font-size: .92rem; font-weight: 500;
+}
+.rv-status.is-error { background: #fdecec; color: #8a1c1c; }
+
+@media (max-width: 560px) {
+  .rv-row { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ==========================================================================
    Smile school: topic picker + swipeable tip carousel
    ========================================================================== */
 .il-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
