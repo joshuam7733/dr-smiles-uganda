@@ -18,6 +18,10 @@ All notable changes to the Dr. Smiles Uganda website concept.
   "Hide treatments" button inside the menu closes it and returns to the services. Without JavaScript the
   menu stays visible.
 
+### About
+- Swapped the two outreach photos: the smiling patient with Dr. Smiles is now the large image (new 1100px
+  version for sharp screens), and the outdoor treatment photo is the small tilted inset.
+
 ### Client overview PDF
 - Removed three questions from "To finish your website": qualifications, the link to Pasha Dental Surgery,
   and which treatments he provides. The web address (drsmilesug.com), WhatsApp and phone numbers, reviews,
