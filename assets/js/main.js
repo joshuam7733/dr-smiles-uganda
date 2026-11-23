@@ -314,7 +314,7 @@
     });
     if (reduceMotion.matches || !Element.prototype.animate) return;
 
-    document.querySelectorAll(".service:not(.service-tbc)").forEach(function (row) {
+    document.querySelectorAll(".service").forEach(function (row) {
       row.addEventListener("pointerenter", function (e) {
         if (e.pointerType !== "mouse") return;
         row.querySelectorAll(".service-icon svg > *").forEach(function (shape, i) {

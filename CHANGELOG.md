@@ -2,6 +2,37 @@
 
 All notable changes to the Dr. Smiles Uganda website concept.
 
+## 2026-11-23: Review round 2
+
+### Hero (desktop only)
+- More space under the headline (about half a line plus 1.5rem) so the green smile no longer overlaps the
+  intro text. Before, the smile reached past the start of the intro text even without hovering.
+- The hover "grin" is gentler (scales to 115% instead of 145%). Phone and tablet layouts are unchanged.
+
+### Services
+- New desktop layout: a sticky intro column (title, short description, "Book a visit" and "See all treatments")
+  beside a two-column grid of service cards. Cards are white with larger icons, bigger body text
+  (about 16px, 1.65 line height) and a lift and green accent on hover.
+- Replaced the short "Also available at the clinic" chip list with a full treatment menu in eight groups:
+  check-ups and prevention, fillings and root canals, cosmetic dentistry, replacing missing teeth,
+  straighter teeth, oral surgery, protective guards and children's dentistry. Items follow the Pasha Dental
+  Surgery service list and clinic profile.
+
+### Contact
+- The map card now has "Get directions" and "View on Google Maps" buttons that open the clinic's exact Google
+  Maps listing (Pasha Dental Surgery, plus code 9H3X+94P, Bukoto Kisasi Rd). The illustrated map is also
+  clickable and shows a "Kirabo Complex" label.
+- Clinic hours re-checked against the Google Maps listing: Monday to Friday 8 am to 8 pm, Saturday 8 am to
+  4 pm, Sunday 10 am to 3 pm. They match what is shown.
+
+### About
+- Replaced the side photo (an unrelated selfie) with a photo from the same charity outreach as the main image:
+  Dr. Smiles and a smiling patient in the dental chair. Source: the Dr. Smiles charity project post on
+  Instagram, 21 October 2026. Removed the old `dr-smiles-portrait-360.webp`.
+
+### Unchanged on purpose
+- Patient reviews stay as placeholders for now.
+
 ## 2026-11-23: Phase 1 continuation
 
 ### Business information

@@ -421,6 +421,10 @@ blockquote { margin: 0; }
 .is-loaded .sticker-mobile { transform: rotate(-4deg); transition-delay: 1s; }
 .is-loaded .sticker-tag { transform: rotate(5deg); transition-delay: 1.15s; }
 
+@media (min-width: 961px) {
+  /* Room under the headline so the smile (and its hover grin) never touches the intro text */
+  .hero-title { margin-bottom: calc(.45em + 1.5rem); }
+}
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: minmax(0, 1fr); }
   .hero-copy { max-width: 40rem; }
@@ -561,84 +565,151 @@ blockquote { margin: 0; }
    ========================================================================== */
 .services { background: var(--enamel); }
 
+/* Intro column beside the service cards on wide screens */
+.services-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 2fr);
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: start;
+}
+.services-intro { position: sticky; top: calc(var(--header-h) + 2rem); }
+.services-intro .section-title { margin-bottom: 1rem; }
+.services-lede {
+  max-width: 24rem;
+  margin-bottom: 1.75rem;
+  font-size: var(--step-1);
+  line-height: 1.6;
+  color: var(--navy-soft);
+}
+.services-cta { display: flex; flex-wrap: wrap; gap: .75rem; }
+
 .service-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0 clamp(1.5rem, 3vw, 3rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 1.8vw, 1.5rem);
 }
 
 .service {
   position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr auto;
-  column-gap: 1rem;
-  padding: 1.75rem 0 2rem;
-  border-top: 2px solid var(--navy);
+  display: flex; flex-direction: column; align-items: flex-start;
+  padding: clamp(1.4rem, 2.2vw, 2rem);
+  border-radius: var(--radius-m);
+  background-color: var(--white);
+  box-shadow: 0 0 0 1px var(--line);
+  overflow: hidden;
+  transition: box-shadow .35s;
 }
 .service::before {
-  content: ""; position: absolute; left: 0; right: 0; top: -2px; height: 6px;
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px;
   background: var(--green);
   transform: scaleX(0); transform-origin: left;
   transition: transform .45s var(--ease-out);
 }
 .service-icon {
-  grid-row: 1 / 4;
   display: grid; place-items: center;
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: var(--white);
-  box-shadow: 0 0 0 1px var(--line);
+  width: 64px; height: 64px;
+  margin-bottom: 1.1rem;
+  border-radius: 18px;
+  background: var(--mint);
   transition: background-color .3s, transform .45s var(--ease-spring);
 }
 .service-icon svg {
-  width: 30px; height: 30px;
+  width: 34px; height: 34px;
   fill: none; stroke: var(--navy); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
 }
-.service h3 { font-size: var(--step-2); margin: .55rem 0 .6rem; letter-spacing: -.02em; }
-.service p { color: var(--navy-soft); margin-bottom: 1rem; }
+.service h3 { margin: 0 0 .5rem; font-size: var(--step-2); letter-spacing: -.02em; }
+.service p {
+  flex: 1;
+  margin: 0 0 1.25rem;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--navy-soft);
+}
 .service-where {
-  justify-self: start;
-  padding: .2rem .75rem;
+  padding: .3rem .8rem;
   border-radius: 999px;
-  background: var(--mint);
+  background: var(--enamel);
+  box-shadow: inset 0 0 0 1px var(--line);
   font-size: .8rem; font-weight: 600;
 }
 
 @media (hover: hover) {
+  .service:hover { box-shadow: 0 0 0 1.5px var(--navy), 0 20px 34px -22px rgba(17, 31, 61, .45); }
+  .js .services .service.is-visible:hover { transform: translateY(-4px); transition: transform .3s var(--ease-out), box-shadow .35s; }
   .service:hover::before { transform: scaleX(1); }
   .service:hover .service-icon { background: var(--green); transform: rotate(-8deg) scale(1.06); }
 }
 
-.service-more {
-  grid-column: 1 / -1;
-  display: grid; gap: .85rem;
-  margin-top: 1rem;
-  padding: 1.5rem;
-  border-top: 0;
+/* Full treatment menu, grouped so it is easy to scan */
+.treatments { margin-top: clamp(3.5rem, 6vw, 5.5rem); }
+.treatments-head {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: .75rem 2rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--navy);
+}
+.treatments-head h3 { font-size: var(--step-3); letter-spacing: -.025em; }
+.treatments-head p { max-width: 32rem; margin: 0; color: var(--navy-soft); }
+
+.treatment-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+.treatment-group {
+  padding: 1.25rem 1.25rem 1.4rem;
   border-radius: var(--radius-m);
   background: var(--white);
   box-shadow: 0 0 0 1px var(--line);
 }
-.service-more::before { display: none; }
-.service-more h3 { margin: 0; font-size: var(--step-2); }
-.service-more p { margin: 0; color: var(--navy-soft); font-size: var(--step--1); }
-.service-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
-.service-chips li {
-  padding: .35rem .85rem;
-  border-radius: 999px;
-  background: var(--mint);
-  font-size: .85rem; font-weight: 600;
+.treatment-icon {
+  display: grid; place-items: center;
+  width: 40px; height: 40px;
+  margin-bottom: .85rem;
+  border-radius: 12px;
+  background: var(--navy);
+}
+.treatment-icon svg {
+  width: 22px; height: 22px;
+  fill: none; stroke: var(--green); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.treatment-group h4 {
+  margin: 0 0 .7rem;
+  font: 800 var(--step-1)/1.2 var(--font-display);
+  letter-spacing: -.015em;
+}
+.treatment-group ul { display: grid; gap: .45rem; }
+.treatment-group li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: .92rem; line-height: 1.45;
+  color: var(--navy-soft);
+}
+.treatment-group li::before {
+  content: "";
+  position: absolute; left: 0; top: .55em;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green);
 }
 
+@media (max-width: 1100px) {
+  .treatment-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (max-width: 960px) {
-  .service-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .services-layout { grid-template-columns: minmax(0, 1fr); }
+  .services-intro { position: static; }
+}
+@media (max-width: 820px) {
+  .treatment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
   .service-list { grid-template-columns: minmax(0, 1fr); }
-  .service:not(.service-more) { padding: 1.4rem 0 1.6rem; }
-  .service-icon { width: 48px; height: 48px; }
-  .service-icon svg { width: 26px; height: 26px; }
+  .service-icon { width: 56px; height: 56px; border-radius: 16px; }
+  .service-icon svg { width: 30px; height: 30px; }
+}
+@media (max-width: 480px) {
+  .treatment-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ==========================================================================
@@ -1114,8 +1185,23 @@ blockquote { margin: 0; }
 @keyframes pin-bob { 50% { transform: translateY(-8px); } }
 .map-body { display: grid; gap: .2rem; padding: 1.1rem 1.25rem 1.3rem; }
 .map-body span { color: #b8c7e3; font-size: var(--step--1); }
-.map-link { justify-self: start; margin-top: .4rem; font-size: var(--step--1); font-weight: 600; color: var(--green); text-underline-offset: 3px; }
-.map-link:hover { color: var(--white); }
+.map-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .85rem; }
+.btn-sm { min-height: 42px; padding: .55em 1.1em; font-size: .9rem; }
+.map-art { display: block; }
+.map-art .road { transition: stroke .3s; }
+.map-label {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, 12px);
+  padding: .25rem .75rem;
+  border-radius: 999px;
+  background: var(--white); color: var(--navy);
+  font-size: .75rem; font-weight: 600; white-space: nowrap;
+  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, .5);
+}
+@media (hover: hover) {
+  .map-art:hover .road { stroke: #4a65a6; }
+  .map-art:hover .map-pin svg { fill: #6be04a; }
+}
 
 .hours-card {
   display: grid; gap: .9rem;
@@ -1230,7 +1316,7 @@ blockquote { margin: 0; }
 
 /* Cards: a soft spotlight that tracks the pointer */
 @media (hover: hover) {
-  .service:not(.service-more):hover {
+  .service:hover {
     background-image: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(69, 204, 34, .16), transparent 70%);
   }
   .fact-link:hover {
@@ -1398,7 +1484,7 @@ blockquote { margin: 0; }
 /* The smile under the headline grins a little wider on hover */
 .smile-arc { transform-origin: 50% 0; transition: transform .5s var(--ease-spring); }
 @media (hover: hover) {
-  .hero-title:hover .smile-arc { transform: scaleY(1.45); }
+  .hero-title:hover .smile-arc { transform: scaleY(1.15); }
 }
 
 /* ==========================================================================
